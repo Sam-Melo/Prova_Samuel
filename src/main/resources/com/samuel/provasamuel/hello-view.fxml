@@ -1,0 +1,62 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.samuel.provasamuel.HelloController"
+            fitToWidth="true" prefWidth="900" prefHeight="700">
+    <content>
+        <VBox spacing="12" style="-fx-padding: 20;">
+            <Label text="Sistema de Estoque de Medicamentos"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <Separator/>
+            <Label text="Dados do Medicamento" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <TextField fx:id="campoCodigo" promptText="Código (7 caracteres)" prefWidth="200"/>
+                <TextField fx:id="campoNome" promptText="Nome do medicamento" prefWidth="400"/>
+            </HBox>
+            <TextField fx:id="campoDescricao" promptText="Descrição"/>
+            <TextField fx:id="campoPrincipioAtivo" promptText="Princípio ativo"/>
+            <HBox spacing="10">
+                <DatePicker fx:id="campoValidade" promptText="Data de validade"/>
+                <TextField fx:id="campoQuantidade" promptText="Quantidade" prefWidth="120"/>
+                <TextField fx:id="campoPreco" promptText="Preço" prefWidth="120"/>
+                <CheckBox fx:id="campoControlado" text="Controlado"/>
+            </HBox>
+            <Separator/>
+            <Label text="Dados do Fornecedor" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <TextField fx:id="campoCnpj" promptText="CNPJ" prefWidth="220"/>
+                <TextField fx:id="campoRazaoSocial" promptText="Razão social" prefWidth="400"/>
+            </HBox>
+            <HBox spacing="10">
+                <TextField fx:id="campoTelefone" promptText="Telefone" prefWidth="200"/>
+                <TextField fx:id="campoEmail" promptText="E-mail" prefWidth="350"/>
+            </HBox>
+            <HBox spacing="10">
+                <TextField fx:id="campoCidade" promptText="Cidade" prefWidth="250"/>
+                <TextField fx:id="campoEstado" promptText="Estado" prefWidth="100"/>
+            </HBox>
+            <Separator/>
+            <HBox spacing="10">
+                <Button text="Cadastrar" onAction="#cadastrar"/>
+                <Button text="Consultar" onAction="#consultar"/>
+                <Button text="Excluir" onAction="#excluir"/>
+                <Button text="Limpar" onAction="#limpar"/>
+            </HBox>
+            <Label text="Medicamentos Cadastrados" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tabelaMedicamentos" prefHeight="230">
+                <columns>
+                    <TableColumn fx:id="colunaCodigo" text="Código" prefWidth="120"/>
+                    <TableColumn fx:id="colunaNome" text="Nome" prefWidth="300"/>
+                    <TableColumn fx:id="colunaPreco" text="Preço" prefWidth="140"/>
+                    <TableColumn fx:id="colunaEstoque" text="Estoque" prefWidth="140"/>
+                </columns>
+            </TableView>
+            <Separator/>
+            <Label text="Relatórios" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <Button text="Próximos do vencimento (30 dias)" onAction="#relatorioVencimento"/>
+                <Button text="Estoque baixo (menos de 5)" onAction="#relatorioEstoqueBaixo"/>
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>
